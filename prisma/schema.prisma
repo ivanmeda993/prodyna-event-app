@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  accounts       Account[]
+
+  createdEvents Event[] @relation("CreatedEvents")
+
+  attentedEventIds String[] @db.ObjectId
+  attentedEvents   Event[]  @relation("AttentEvent", references: [id], fields: [attentedEventIds])
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Event {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  type             String?
+  title            String?
+  shortDescription String?
+  longDescription  String?
+  location         String?
+  image            String?
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  subbmitionDate DateTime?
+
+  author   User   @relation("CreatedEvents", fields: [authorId], references: [id], onDelete: Cascade)
+  authorId String @db.ObjectId
+
+  attentedByIds String[] @unique @db.ObjectId
+  attentedBy    User[]   @relation("AttentEvent", fields: [attentedByIds], references: [id])
+}
