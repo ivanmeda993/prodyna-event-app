@@ -1,13 +1,13 @@
 import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import Navbar from "@/app/(app)/components/nav/Navbar";
 
 const AppLayout = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getServerSession();
-
-  console.log("SESSION", session?.user?.name);
+  const currentUser = await getCurrentUser();
   return (
     <div className="h-full">
-      <div>App Layout</div>
+      <Navbar user={currentUser!} />
       {children}
     </div>
   );
