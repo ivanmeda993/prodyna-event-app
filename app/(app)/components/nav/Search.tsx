@@ -1,9 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
-import { differenceInDays } from "date-fns";
 
 const Search = () => {
   const params = useSearchParams();

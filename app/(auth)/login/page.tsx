@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
-import { toast } from "react-hot-toast";
 import { useEffect } from "react";
 
 const LoginPage = () => {

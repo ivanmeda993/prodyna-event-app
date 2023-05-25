@@ -9,7 +9,6 @@ interface INavbar {
   user: User;
 }
 const Navbar = ({ user }: INavbar) => {
-  console.log("USER", user);
   return (
     <div className="w-full  z-10 shadow-sm ">
       <div className="py-4 border-b-[1px]">

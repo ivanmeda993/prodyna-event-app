@@ -2,6 +2,7 @@ import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+
 interface CategoryBoxProps {
   icon: IconType;
   label: string;
@@ -52,15 +53,18 @@ const CategoryBox = ({ icon: Icon, label, selected }: CategoryBoxProps) => {
         gap-1
         p-2
         border-b-2
-        hover:text-neutral-800
+        hover:text-lime-500
         transition
         cursor-pointer
-        ${selected ? "border-b-neutral-800" : "border-transparent"}
-        ${selected ? "text-neutral-800" : "text-neutral-500"}
+        ${
+          selected
+            ? "text-lime-500 border-b-lime-500"
+            : "border-transparent text-neutral-700"
+        }
       `}
     >
       <Icon size={23} />
-      <div className="font-medium text-sm">{label}</div>
+      <div className="font-medium text-sm hidden md:inline">{label}</div>
     </div>
   );
 };

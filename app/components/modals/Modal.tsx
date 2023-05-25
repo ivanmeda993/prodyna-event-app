@@ -67,10 +67,7 @@ const Modal = ({ isOpen, children, onClose }: IModal) => {
                   shadow-xl
                   transition-all
                   w-full
-                  sm:my-8
-                  sm:w-full
-                  sm:max-w-lg
-                  sm:p-6
+                  max-w-3xl
                 "
               >
                 <div
@@ -93,9 +90,7 @@ const Modal = ({ isOpen, children, onClose }: IModal) => {
                       text-gray-400
                       hover:text-gray-500
                       focus:outline-none
-                      focus:ring-2
-                      focus:ring-indigo-500
-                      focus:ring-offset-2
+
                     "
                     onClick={onClose}
                   >

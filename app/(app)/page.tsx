@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Container from "@/app/components/Container";
 
-export default function Home() {
+export default async function Home() {
   return (
     <Container>
       <div className="pt-12">Home</div>

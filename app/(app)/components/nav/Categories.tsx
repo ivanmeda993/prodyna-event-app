@@ -7,7 +7,7 @@ import Container from "@/app/components/Container";
 import { MdFastfood, MdSportsBasketball } from "react-icons/md";
 import { RiTeamFill } from "react-icons/ri";
 import { ImBook } from "react-icons/im";
-import { AiFillPicture } from "react-icons/ai";
+import { FaTheaterMasks } from "react-icons/fa";
 
 export const categories = [
   {
@@ -31,8 +31,8 @@ export const categories = [
     description: "This property is in the countryside!",
   },
   {
-    label: "Art",
-    icon: AiFillPicture,
+    label: "Entertainment",
+    icon: FaTheaterMasks,
     description: "This is property has a beautiful pool!",
   },
 ];
