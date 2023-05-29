@@ -13,21 +13,21 @@ const CategoryBox = ({ icon: Icon, label, selected }: CategoryBoxProps) => {
   const router = useRouter();
   // useSearchParams hook from Next.js for handling URL query params
   const params = useSearchParams();
-  // function that handles category box click events
+  // function that handles type box click events
   const handleClick = useCallback(() => {
     // get the current query params from the URL
     let currentQuery = {};
     if (params) {
       currentQuery = qs.parse(params.toString());
     }
-    // update the query params with the selected category
+    // update the query params with the selected type
     const updatedQuery: any = {
       ...currentQuery,
-      category: label,
+      type: label,
     };
-    // if the same category is clicked twice, remove it from the query params
-    if (params?.get("category") === label) {
-      delete updatedQuery.category;
+    // if the same type is clicked twice, remove it from the query params
+    if (params?.get("type") === label) {
+      delete updatedQuery.type;
     }
     // stringify the updated URL with query params
     const url = qs.stringifyUrl(
@@ -40,7 +40,7 @@ const CategoryBox = ({ icon: Icon, label, selected }: CategoryBoxProps) => {
     // trigger a page reload with the updated URL
     router.push(url);
   }, [label, router, params]);
-  // render the category box with icon and label
+  // render the type box with icon and label
   return (
     <div
       onClick={handleClick}
@@ -51,7 +51,7 @@ const CategoryBox = ({ icon: Icon, label, selected }: CategoryBoxProps) => {
         items-center 
         justify-center 
         gap-1
-        p-2
+        py-2
         border-b-2
         hover:text-lime-500
         transition

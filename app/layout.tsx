@@ -1,10 +1,15 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Providers from "@/app/providers/Providers";
 import EventModal from "@/app/components/modals/EventModal";
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
-const inter = Inter({ subsets: ["latin"] });
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import "react-loading-skeleton/dist/skeleton.css";
+
+const roboto = Roboto({
+  weight: ["100", "300", "400"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Prodyna Events App",
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <Providers>
           <EventModal />
           {children}

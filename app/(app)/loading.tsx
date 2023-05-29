@@ -1,7 +1,6 @@
-import LoadingModal from "@/app/components/modals/LoadingModal";
-
+import CardLoading from "@/app/(app)/components/CardLoading";
 const Loading = () => {
-  return <LoadingModal />;
+  return <CardLoading />;
 };
 
 export default Loading;

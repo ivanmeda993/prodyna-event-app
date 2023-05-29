@@ -15,7 +15,10 @@ const Navbar = ({ user }: INavbar) => {
         <Container>
           <div className="flex items-center justify-between gap-3 md:gap-0">
             <Logo />
-            <Search />
+            {/*<Search />*/}
+            <h2 className="text-lg font-semibold text-black/70 uppercase">
+              Prodyna Events
+            </h2>
             <UserMenu currentUser={user} />
           </div>
         </Container>

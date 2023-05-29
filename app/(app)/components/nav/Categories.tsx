@@ -40,7 +40,7 @@ export const categories = [
 const Categories = () => {
   const params = useSearchParams();
   const pathname = usePathname();
-  const category = params?.get("category");
+  const type = params?.get("type");
   const isMainPage = pathname === "/";
 
   if (!isMainPage) {
@@ -54,7 +54,7 @@ const Categories = () => {
           flex
           flex-row
           items-center
-          justify-evenly
+          justify-between
           overflow-x-auto
         "
       >
@@ -63,7 +63,7 @@ const Categories = () => {
             key={item.label}
             label={item.label}
             icon={item.icon}
-            selected={category === item.label}
+            selected={type === item.label}
           />
         ))}
       </div>

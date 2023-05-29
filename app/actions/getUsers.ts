@@ -1,5 +1,5 @@
-import prismadb from "@/app/libs/prismadb";
 import getSession from "@/app/actions/getSession";
+import prismadb from "@/app/libs/prismadb";
 
 export default async function getUsers() {
   const session = await getSession();

@@ -15,6 +15,7 @@ import { Range } from "react-date-range";
 import ImageUpload from "@/app/(app)/components/inputs/ImageUpload";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 enum STEPS {
   CATEGORY = 0,
@@ -24,6 +25,7 @@ enum STEPS {
 }
 
 const EventModal = () => {
+  const router = useRouter();
   const [step, setStep] = useState(STEPS.CATEGORY);
   const [dateRange, setDateRange] = useState<Range>({
     startDate: new Date(),
@@ -105,6 +107,7 @@ const EventModal = () => {
         error: "Failed to create event",
       })
       .then(() => {
+        router.refresh();
         reset();
         onClose();
         setStep(STEPS.CATEGORY);
