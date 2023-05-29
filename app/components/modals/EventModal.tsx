@@ -1,9 +1,9 @@
 "use client";
 
 import Modal from "@/app/components/modals/Modal";
-import useEventModal from "@/app/hooks/modal/useLoginModal";
+import useEventModal from "@/app/hooks/modal/useEventModal";
 import Heading from "@/app/(app)/components/Heading";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Button from "@/app/(app)/components/Button";
 import { categories } from "@/app/(app)/components/nav/Categories";
 import CategoryInput from "@/app/(app)/components/inputs/CategoryInput";
@@ -26,6 +26,7 @@ enum STEPS {
 
 const EventModal = () => {
   const router = useRouter();
+
   const [step, setStep] = useState(STEPS.CATEGORY);
   const [dateRange, setDateRange] = useState<Range>({
     startDate: new Date(),
@@ -62,7 +63,26 @@ const EventModal = () => {
 
   const imageSrc = watch("image");
 
-  const { isOpen, onClose } = useEventModal();
+  const { isOpen, onClose, isEdit, event } = useEventModal();
+
+  useEffect(() => {
+    if (isEdit && event) {
+      setValue("title", event.title);
+      setValue("shortDescription", event.shortDescription);
+      setValue("longDescription", event.longDescription);
+      setValue("location", event.location);
+      setValue("image", event.image);
+      setValue("type", event.type);
+      setValue("eventStartDate", event.eventStartDate);
+      setValue("eventEndDate", event.eventEndDate);
+      setValue("submissionEndDate", event.submissionEndDate);
+    }
+
+    return () => {
+      reset();
+      setStep(STEPS.CATEGORY);
+    };
+  }, [event, isEdit, reset, setValue]);
 
   const onBack = () => {
     if (step === STEPS.CATEGORY) {
@@ -100,6 +120,29 @@ const EventModal = () => {
       eventEndDate: endDate,
     };
 
+    if (isEdit && event) {
+      return await toast
+        .promise(
+          axios.put("/api/event", {
+            ...dataToSubmit,
+            id: event.id,
+          }),
+          {
+            loading: "Editing event...",
+            success: "Event edited!",
+            error: "Failed to edit event",
+          }
+        )
+        .then(() => {
+          router.refresh();
+          reset();
+          onClose();
+          setStep(STEPS.CATEGORY);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     await toast
       .promise(axios.post("/api/event", dataToSubmit), {
         loading: "Creating event...",

@@ -13,27 +13,27 @@ export const categories = [
   {
     label: "Team Building",
     icon: RiTeamFill,
-    description: "This property is close to the beach!",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     label: "Sport",
     icon: MdSportsBasketball,
-    description: "This property is has windmills!",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     label: "Workshop",
     icon: ImBook,
-    description: "Knowledge Sharing",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     label: "Food/Drink",
     icon: MdFastfood,
-    description: "This property is in the countryside!",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     label: "Entertainment",
     icon: FaTheaterMasks,
-    description: "This is property has a beautiful pool!",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 

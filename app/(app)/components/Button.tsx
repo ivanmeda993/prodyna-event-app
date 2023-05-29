@@ -31,6 +31,8 @@ const Button = ({
         `
         flex 
         justify-center 
+        items-center
+        gap-2
         rounded-md 
         px-3 
         py-2 

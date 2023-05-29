@@ -5,6 +5,7 @@ import { User, Event } from ".prisma/client";
 import Link from "next/link";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import useHandleLike from "@/app/hooks/useHandleLike";
+import AttendButton from "@/app/(app)/components/AttendButton";
 
 interface EventCardProps {
   event: Event & { creator: User; attendees: User[] };
@@ -63,15 +64,7 @@ const EventCard = ({ currentUser, event }: EventCardProps) => {
               {event.attendees.length === 1 ? "person" : "people"} attending
             </span>
 
-            <button
-              disabled={isLoading}
-              onClick={handleLike}
-              className={`ml-auto hover:text-lime-500 hover:scale-110 transition duration-200 ease-in-out ${
-                isLiked && "text-lime-500"
-              } ${isLoading && "animate-spin"} `}
-            >
-              {isLiked ? <AiFillLike size={24} /> : <AiOutlineLike size={24} />}
-            </button>
+            <AttendButton event={event} currentUser={currentUser} />
           </div>
           <Link
             href={`/event/${event.id}`}

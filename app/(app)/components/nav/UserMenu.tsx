@@ -6,7 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "@/app/components/Avatar";
 import { User } from ".prisma/client";
 import { BsPlus } from "react-icons/bs";
-import useEventModal from "@/app/hooks/modal/useLoginModal";
+import useEventModal from "@/app/hooks/modal/useEventModal";
 import { FiLogOut } from "react-icons/fi";
 import { signOut } from "next-auth/react";
 
@@ -16,6 +16,7 @@ interface UserMenuProps {
 
 export default function UserMenu({ currentUser }: UserMenuProps) {
   const { onOpen } = useEventModal();
+  console.log("currentUser: ", currentUser);
   return (
     <div className="relative">
       <Menu as="div" className="relative inline-block text-left">
