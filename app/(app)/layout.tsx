@@ -7,7 +7,7 @@ const AppLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
       <Navbar user={currentUser!} />
-      <div className="pt-16">{children}</div>
+      <div className="pt-4 pb-24  md:pt-24">{children}</div>
     </div>
   );
 };

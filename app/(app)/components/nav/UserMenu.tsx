@@ -49,15 +49,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
                   Create Event
                 </button>
               </Menu.Item>
-              <Menu.Item>
-                <button
-                  onClick={() => signOut()}
-                  className={` group flex w-full items-center rounded-md gap-1 px-2 py-2 text-sm hover:bg-lime-500 hover:text-white`}
-                >
-                  <FiLogOut size={18} />
-                  Logout
-                </button>
-              </Menu.Item>
+
               <Menu.Item>
                 <Link
                   href="/dashboard"
@@ -66,6 +58,16 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
                   <MdOutlineSpaceDashboard size={18} />
                   Dashboard
                 </Link>
+              </Menu.Item>
+              <hr className="my-2" />
+              <Menu.Item>
+                <button
+                  onClick={() => signOut()}
+                  className={` group flex w-full items-center rounded-md gap-1 px-2 py-2 text-sm hover:bg-lime-500 hover:text-white`}
+                >
+                  <FiLogOut size={18} />
+                  Logout
+                </button>
               </Menu.Item>
             </div>
           </Menu.Items>

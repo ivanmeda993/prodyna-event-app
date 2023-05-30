@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link href="/">
       <Image
-        className="hidden md:block cursor-pointer w-auto"
+        className=" cursor-pointer w-auto"
         src="/images/logo.png"
         priority
         height="100"

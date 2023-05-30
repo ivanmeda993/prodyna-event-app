@@ -28,11 +28,11 @@ const EventDetailsPage = async ({ params }: { params: IParams }) => {
   }
 
   return (
-    <>
+    <div className="pt-12 md:pt-0">
       <Suspense fallback={<div>Loading...</div>}>
         <EventDetails currentUser={currentUser} eventData={eventData!} />
       </Suspense>
-    </>
+    </div>
   );
 };
 

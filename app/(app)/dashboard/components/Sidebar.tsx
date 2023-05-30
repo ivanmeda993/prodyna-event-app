@@ -10,10 +10,10 @@ interface SidebarProps {
 }
 export default function Sidebar({ children }: SidebarProps) {
   return (
-    <div className="h-full pt-24 relative">
+    <div className="h-full pt-24 md:pt-0 relative">
       <DesktopSidebar />
       <MobileSidebar />
-      <main className="lg:pl-72 h-full">{children}</main>
+      <main className="lg:pl-56 h-full">{children}</main>
     </div>
   );
 }

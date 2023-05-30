@@ -10,6 +10,7 @@ interface ButtonProps {
   disabled?: boolean;
   label: string;
   icon?: IconType;
+  hideLabel?: boolean;
 }
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   danger,
   disabled,
   label,
+  hideLabel,
   icon: Icon,
 }: ButtonProps) => {
   return (
@@ -54,7 +56,7 @@ const Button = ({
           "bg-lime-500 hover:bg-lime-400 focus-visible:bg-lime-400 hover:shadow-md"
       )}
     >
-      {label}
+      <span className={`${hideLabel ? "hidden" : "inline-flex"}`}>{label}</span>
       {Icon && <Icon size={24} />}
     </button>
   );

@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
       <Container>
         <div
           className="
-              py-16
+              py-8
               grid
               grid-cols-1
               sm:grid-cols-2

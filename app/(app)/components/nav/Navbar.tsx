@@ -16,7 +16,7 @@ const Navbar = ({ user }: INavbar) => {
           <div className="flex items-center justify-between gap-3 md:gap-0">
             <Logo />
             {/*<Search />*/}
-            <h2 className="text-lg font-semibold text-black/70 uppercase">
+            <h2 className="hidden md:inline-flex text-lg font-semibold text-black/70 uppercase">
               Prodyna Events
             </h2>
             <UserMenu currentUser={user} />
