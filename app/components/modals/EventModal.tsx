@@ -162,7 +162,7 @@ const EventModal = () => {
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.IMAGE) {
-      return "Create";
+      return "Finish";
     }
 
     return "Next";

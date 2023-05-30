@@ -3,6 +3,7 @@ import Heading from "@/app/(app)/components/Heading";
 import Container from "@/app/components/Container";
 import EventCard from "@/app/(app)/components/EventCard";
 import { Suspense } from "react";
+import EmptyState from "@/app/(app)/components/EmptyState";
 
 export const metadata = {
   title: `Dashboard | Attends`,
@@ -13,6 +14,14 @@ const Attends = async () => {
 
   const attendEvents = currentUser?.attendedEvents;
 
+  if (attendEvents?.length === 0) {
+    return (
+      <EmptyState
+        title="You have not attended any events yet"
+        subtitle={`Let's start by attending your first event.`}
+      />
+    );
+  }
   return (
     <div>
       <Container>

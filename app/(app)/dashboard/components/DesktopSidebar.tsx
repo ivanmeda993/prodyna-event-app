@@ -3,6 +3,8 @@ import useRoutes from "@/app/hooks/useRoutes";
 import DesktopItem from "@/app/(app)/dashboard/components/DesktopItem";
 import { HiArrowLeftOnRectangle } from "react-icons/hi2";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
+import clsx from "clsx";
 interface IDesktopSidebar {
   data?: any;
 }
@@ -22,12 +24,17 @@ export default function DesktopSidebar({}: IDesktopSidebar) {
             />
           ))}
         </ul>
-        <DesktopItem
-          href="#"
-          label="Sing Out"
-          icon={HiArrowLeftOnRectangle}
+        <button
           onClick={() => signOut()}
-        />
+          className={clsx(
+            `
+        group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-500 hover:text-black hover:bg-gray-100 
+        `
+          )}
+        >
+          <HiArrowLeftOnRectangle className="h-6 w-6 shrink-0" />
+          Sing Out
+        </button>
       </nav>
     </div>
   );
