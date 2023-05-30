@@ -9,6 +9,8 @@ import { BsPlus } from "react-icons/bs";
 import useEventModal from "@/app/hooks/modal/useEventModal";
 import { FiLogOut } from "react-icons/fi";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 interface UserMenuProps {
   currentUser?: User;
@@ -16,7 +18,6 @@ interface UserMenuProps {
 
 export default function UserMenu({ currentUser }: UserMenuProps) {
   const { onOpen } = useEventModal();
-  console.log("currentUser: ", currentUser);
   return (
     <div className="relative">
       <Menu as="div" className="relative inline-block text-left">
@@ -56,6 +57,15 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
                   <FiLogOut size={18} />
                   Logout
                 </button>
+              </Menu.Item>
+              <Menu.Item>
+                <Link
+                  href="/dashboard"
+                  className={` group flex w-full items-center rounded-md gap-1 px-2 py-2 text-sm hover:bg-lime-500 hover:text-white`}
+                >
+                  <MdOutlineSpaceDashboard size={18} />
+                  Dashboard
+                </Link>
               </Menu.Item>
             </div>
           </Menu.Items>

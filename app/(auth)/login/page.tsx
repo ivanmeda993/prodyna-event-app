@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { useEffect } from "react";
+import Logo from "/public/images/logo.png";
 
 const LoginPage = () => {
   const session = useSession();
@@ -22,7 +23,13 @@ const LoginPage = () => {
       <div className="w-full max-w-xl bg-white px-8 py-24 rounded-xl shadow-2xl">
         <div className="flex flex-col items-center justify-center gap-y-8">
           <div className="relative w-full h-28">
-            <Image src="/images/logo.png" alt="logo" fill priority />
+            <Image
+              src={Logo}
+              alt="logo"
+              priority
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
           <h2 className="text-xl text-black/70  font-semibold text-center">
             Welcome to Prodyna Events

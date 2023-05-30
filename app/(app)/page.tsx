@@ -10,7 +10,6 @@ interface HomeProps {
   searchParams: IEventsParams;
 }
 export default async function Home({ searchParams }: HomeProps) {
-  console.log("Search Params: ", searchParams);
   const currentUser = await getCurrentUser();
   const events = await getEvents(searchParams);
   if (events.length === 0) {
@@ -18,7 +17,7 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   return (
-    <>
+    <div className="pt-32">
       {/*<CardLoading />*/}
       <Container>
         <div
@@ -41,6 +40,6 @@ export default async function Home({ searchParams }: HomeProps) {
           ))}
         </div>
       </Container>
-    </>
+    </div>
   );
 }

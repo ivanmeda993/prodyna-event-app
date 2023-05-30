@@ -7,7 +7,6 @@ const secret = process.env.NEXTAUTH_SECRET;
 export async function POST(req: NextRequest, response: NextResponse) {
   const currentUser = await getCurrentUser();
 
-  console.log("Current user", currentUser);
   if (!currentUser) {
     return NextResponse.error();
   }

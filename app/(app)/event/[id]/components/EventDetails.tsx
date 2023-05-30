@@ -29,7 +29,6 @@ export default function EventDetails({
   currentUser,
 }: IEventDetails) {
   const router = useRouter();
-  console.log("eventData: ", eventData);
 
   const { onEdit } = useEventModal();
 

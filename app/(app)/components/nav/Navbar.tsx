@@ -10,7 +10,7 @@ interface INavbar {
 }
 const Navbar = ({ user }: INavbar) => {
   return (
-    <div className="w-full  z-10 shadow-sm ">
+    <div className="w-full  z-10 shadow-sm fixed left-0 top-0">
       <div className="py-4 border-b-[1px]">
         <Container>
           <div className="flex items-center justify-between gap-3 md:gap-0">

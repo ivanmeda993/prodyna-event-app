@@ -6,7 +6,6 @@ export interface IEventsParams {
 }
 
 export default async function getEvents(params: IEventsParams) {
-  console.log("getEvents params", params);
   const { creatorId, type } = params;
   let query: any = {};
   if (creatorId) {

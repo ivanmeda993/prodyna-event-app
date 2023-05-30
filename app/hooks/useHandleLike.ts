@@ -15,8 +15,8 @@ const useHandleLike = ({ currentUser, event }: IProps) => {
   const isLiked = useMemo(() => {
     //  check and return boolean if the current user is in the attendees list
 
-    return event.attendees.some((attendee) => attendee.id === currentUser?.id);
-  }, [currentUser?.id, event.attendees]);
+    return event?.attendees.some((attendee) => attendee.id === currentUser?.id);
+  }, [currentUser?.id, event?.attendees]);
 
   const handleLike = useCallback(async () => {
     setIsLoading(true);

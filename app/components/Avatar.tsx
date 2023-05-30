@@ -13,6 +13,7 @@ const Avatar = ({ user }: AvatarProps) => {
         <Image
           src={user?.image || "/images/placeholder.jpg"}
           alt="Avatar"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
         />
       </div>

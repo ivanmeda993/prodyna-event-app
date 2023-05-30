@@ -13,13 +13,6 @@ interface EventCardProps {
 }
 
 const EventCard = ({ currentUser, event }: EventCardProps) => {
-  const { isLiked, handleLike, isLoading } = useHandleLike({
-    event,
-    currentUser,
-  });
-
-  console.log("Event: ", event);
-
   return (
     <div className="col-span-1">
       <div className="card w-full glass  ">
@@ -43,6 +36,7 @@ const EventCard = ({ currentUser, event }: EventCardProps) => {
               ease-in-out
             "
             src={event.image ? event.image : "/images/no-image.png"}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             alt="Event"
           />
         </figure>

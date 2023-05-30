@@ -4,6 +4,7 @@ import EmptyState from "@/app/(app)/components/EmptyState";
 import EventDetails from "@/app/(app)/event/[id]/components/EventDetails";
 import { Suspense } from "react";
 
+export const revalidate = 5;
 interface IParams {
   id?: string;
 }

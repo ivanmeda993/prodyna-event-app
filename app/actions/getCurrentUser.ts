@@ -13,7 +13,18 @@ export default async function getCurrentUser() {
         email: session.user.email as string,
       },
       include: {
-        attendedEvents: true,
+        attendedEvents: {
+          include: {
+            creator: true,
+            attendees: true,
+          },
+        },
+        createdEvents: {
+          include: {
+            creator: true,
+            attendees: true,
+          },
+        },
       },
     });
 

@@ -1,9 +1,5 @@
-const ConversationsLayout = async ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const NonAuthLayout = async ({ children }: { children: React.ReactNode }) => {
   return <div className="h-full bg-neutral-200">{children}</div>;
 };
 
-export default ConversationsLayout;
+export default NonAuthLayout;
