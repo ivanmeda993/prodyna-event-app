@@ -14,7 +14,10 @@ const Attends = async () => {
   return (
     <div>
       <Container>
-        <Heading title="Attends" subtitle="List of all attends" />
+        <Heading
+          title={`Attends ${currentUser?.attendedEvents?.length} events`}
+          subtitle="List of all attends"
+        />
         <div
           className="
               pt-8

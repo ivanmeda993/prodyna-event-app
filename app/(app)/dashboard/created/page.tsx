@@ -16,7 +16,11 @@ const Created = async () => {
   return (
     <div>
       <Container>
-        <Heading title="Created" subtitle="List of all attends" />
+        <Heading
+          title={`
+        Created ${created?.length} events  by you ${currentUser?.name}`}
+          subtitle="List of all created events"
+        />
         <div
           className="
               pt-8
