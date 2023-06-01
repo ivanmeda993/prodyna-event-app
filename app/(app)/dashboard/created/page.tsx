@@ -1,9 +1,8 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import Heading from "@/app/(app)/components/Heading";
 import Container from "@/app/components/Container";
-import EventCard from "@/app/(app)/components/EventCard";
 import { Suspense } from "react";
-import EmptyState from "@/app/(app)/components/EmptyState";
+import EventsList from "@/app/(app)/dashboard/components/EventsList";
 
 export const metadata = {
   title: `Dashboard | Created`,
@@ -14,14 +13,6 @@ const Created = async () => {
 
   const created = currentUser?.createdEvents;
 
-  if (created?.length === 0) {
-    return (
-      <EmptyState
-        title="You have not created any events yet"
-        subtitle={`Let's start by creating your first event.`}
-      />
-    );
-  }
   return (
     <div>
       <Container>
@@ -37,13 +28,8 @@ const Created = async () => {
             "
         >
           <Suspense fallback={<div>Loading...</div>}>
-            {created?.map((event) => (
-              <EventCard
-                currentUser={currentUser!}
-                key={event.id}
-                event={event}
-              />
-            ))}
+            {/* @ts-expect-error Server Component */}
+            <EventsList createdEvents currentUser={currentUser!} />
           </Suspense>
         </div>
       </Container>

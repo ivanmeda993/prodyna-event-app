@@ -13,12 +13,6 @@ const useRoutes = () => {
   return useMemo(
     () => [
       {
-        label: "Settings",
-        href: "/dashboard",
-        icon: AiOutlineSetting,
-        active: pathname === "/dashboard",
-      },
-      {
         label: "Created Events",
         href: "/dashboard/created",
         icon: RiFolderUserLine,
