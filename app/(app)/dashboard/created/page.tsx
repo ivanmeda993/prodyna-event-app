@@ -3,6 +3,7 @@ import Heading from "@/app/(app)/components/Heading";
 import Container from "@/app/components/Container";
 import EventCard from "@/app/(app)/components/EventCard";
 import { Suspense } from "react";
+import EventsList from "@/app/(app)/dashboard/components/EventsList";
 
 export const metadata = {
   title: `Dashboard | Created`,
@@ -28,13 +29,8 @@ const Created = async () => {
             "
         >
           <Suspense fallback={<div>Loading...</div>}>
-            {created?.map((event) => (
-              <EventCard
-                currentUser={currentUser!}
-                key={event.id}
-                event={event}
-              />
-            ))}
+            {/* @ts-expect-error Server Component */}
+            <EventsList createdEvents currentUser={currentUser!} />
           </Suspense>
         </div>
       </Container>

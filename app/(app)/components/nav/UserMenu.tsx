@@ -60,7 +60,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
               </Menu.Item>
               <Menu.Item>
                 <Link
-                  href="/dashboard"
+                  href="/dashboard/created"
                   className={` group flex w-full items-center rounded-md gap-1 px-2 py-2 text-sm hover:bg-lime-500 hover:text-white`}
                 >
                   <MdOutlineSpaceDashboard size={18} />

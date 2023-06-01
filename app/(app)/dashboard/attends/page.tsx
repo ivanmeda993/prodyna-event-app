@@ -3,6 +3,7 @@ import Heading from "@/app/(app)/components/Heading";
 import Container from "@/app/components/Container";
 import EventCard from "@/app/(app)/components/EventCard";
 import { Suspense } from "react";
+import EventsList from "@/app/(app)/dashboard/components/EventsList";
 
 export const metadata = {
   title: `Dashboard | Attends`,
@@ -10,8 +11,6 @@ export const metadata = {
 };
 const Attends = async () => {
   const currentUser = await getCurrentUser();
-
-  const attendEvents = currentUser?.attendedEvents;
 
   return (
     <div>
@@ -28,13 +27,10 @@ const Attends = async () => {
             "
         >
           <Suspense fallback={<div>Loading...</div>}>
-            {attendEvents?.map((event) => (
-              <EventCard
-                currentUser={currentUser!}
-                key={event.id}
-                event={event}
-              />
-            ))}
+            <Suspense fallback={<div>Loading...</div>}>
+              {/* @ts-expect-error Server Component */}
+              <EventsList attendingEvents currentUser={currentUser!} />
+            </Suspense>
           </Suspense>
         </div>
       </Container>
