@@ -15,7 +15,7 @@ interface EventCardProps {
 const EventCard = ({ currentUser, event }: EventCardProps) => {
   return (
     <div className="col-span-1">
-      <div className="card w-full glass  ">
+      <div className="card w-full glass">
         <figure
           className="
             aspect-square
